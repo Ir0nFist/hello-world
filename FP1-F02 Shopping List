@@ -1,1 +1,61 @@
+def display_menu():
+    print("\nShopping List Menu:")
+    print("1. Add item")
+    print("2. Modify item")
+    print("3. Delete item")
+    print("4. Display shopping list")
+    print("5. Calculate total cost")
+    print("6. Exit")
+
+def main():
+    shopping_list = {}
+
+    while True:
+        display_menu()
+        choice = input("Choose an option (1-6): ")
+
+        if choice == '1':
+            item = input("Enter item name: ")
+            cost = float(input("Enter item cost: "))
+            shopping_list[item] = cost
+            print(f"Added {item} with cost ${cost:.2f}.")
+
+        elif choice == '2':
+            item = input("Enter item name to modify: ")
+            if item in shopping_list:
+                new_cost = float(input(f"Enter new cost for {item}: "))
+                shopping_list[item] = new_cost
+                print(f"Modified {item} to new cost ${new_cost:.2f}.")
+            else:
+                print(f"{item} not found in the shopping list.")
+
+        elif choice == '3':
+            item = input("Enter item name to delete: ")
+            if item in shopping_list:
+                del shopping_list[item]
+                print(f"Deleted {item} from the shopping list.")
+            else:
+                print(f"{item} not found in the shopping list.")
+
+        elif choice == '4':
+            print("\nShopping List:")
+            if shopping_list:
+                for item, cost in shopping_list.items():
+                    print(f"{item}: ${cost:.2f}")
+            else:
+                print("The shopping list is empty.")
+
+        elif choice == '5':
+            total_cost = sum(shopping_list.values())
+            print(f"Total cost: ${total_cost:.2f}")
+
+        elif choice == '6':
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid choice. Please choose a valid option.")
+
+if __name__ == "__main__":
+    main()
 
