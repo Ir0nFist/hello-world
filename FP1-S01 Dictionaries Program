@@ -1,1 +1,117 @@
+# Inventory Program
+
+# Initialize an inventory list to hold item names
+inventory = []
+
+# Initialize a dictionary to hold details for each item 
+item_details = {}
+
+def add_item(item_name, quantity, price):
+   
+    # Check if the item already exists in the inventory
+    if item_name in item_details:
+        print(f"{item_name} already exists in the inventory.")
+    else:
+        # Append the item name to the inventory list
+        inventory.append(item_name)
+        
+        # Add a dictionary entry for the item with its quantity and price
+        item_details[item_name] = {'quantity': quantity, 'price': price}
+        
+        print(f"Added {item_name} to inventory.")
+
+def modify_item(item_name, quantity=None, price=None):
+    
+    # Check if the item exists in the inventory
+    if item_name in item_details:
+        # Update quantity if provided
+        if quantity is not None:
+            item_details[item_name]['quantity'] = quantity
+            
+        # Update price if provided
+        if price is not None:
+            item_details[item_name]['price'] = price
+        
+        # Display the updated details of the item
+        print(f"Modified {item_name}. New details: {item_details[item_name]}")
+    else:
+        print(f"{item_name} does not exist in the inventory.")
+
+def delete_item(item_name):
+    
+    # Check if the item exists in the inventory
+    if item_name in item_details:
+        # Remove the item from the inventory list
+        inventory.remove(item_name)
+        
+        # Delete the item's details from the dictionary
+        del item_details[item_name]
+        
+        print(f"Deleted {item_name} from inventory.")
+    else:
+        print(f"{item_name} does not exist in the inventory.")
+
+def display_inventory():
+    
+    print("\nCurrent Inventory:")
+    
+    # Iterate over each item in the inventory list
+    for item in inventory:
+        # Get the details of the current item
+        details = item_details[item]
+        
+        # Print the item name along with its quantity and price
+        print(f"- {item}: Quantity = {details['quantity']}, Price = ${details['price']}")
+
+def main():
+   
+    # Loop indefinitely to provide a menu until the user decides to exit
+    while True:
+        # Display menu options
+        print("\n1. Add Item")
+        print("2. Modify Item")
+        print("3. Delete Item")
+        print("4. Display Inventory")
+        print("5. Exit")
+        
+        # Get user choice
+        choice = input("Choose an option: ")
+
+        # Handle adding a new item
+        if choice == '1':
+            name = input("Enter item name: ")
+            qty = int(input("Enter quantity: "))
+            price = float(input("Enter price: "))
+            add_item(name, qty, price)
+        
+        # Handle modifying an existing item
+        elif choice == '2':
+            name = input("Enter item name to modify: ")
+            qty = input("Enter new quantity (or leave blank): ")
+            qty = int(qty) if qty else None  # Convert to int if provided
+            price = input("Enter new price (or leave blank): ")
+            price = float(price) if price else None  # Convert to float if provided
+            modify_item(name, qty, price)
+        
+        # Handle deleting an item
+        elif choice == '3':
+            name = input("Enter item name to delete: ")
+            delete_item(name)
+        
+        # Handle displaying current inventory
+        elif choice == '4':
+            display_inventory()
+        
+        # Handle exiting the program
+        elif choice == '5':
+            print("Exiting the program.")
+            break
+        
+        # Handle invalid choice
+        else:
+            print("Invalid choice. Please try again.")
+
+# Ensure that the main function runs only when the script is executed directly
+if __name__ == "__main__":
+    main()
 
