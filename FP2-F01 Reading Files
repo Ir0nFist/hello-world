@@ -1,3 +1,10 @@
+#data.txt
+Name: Alice
+Age: 30
+City: Wonderland
+Occupation: Adventurer
+
+#python
 with open('data.txt', 'w') as file:
     file.write("Name: Alice\n")
     file.write("Age: 30\n")
@@ -20,4 +27,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
