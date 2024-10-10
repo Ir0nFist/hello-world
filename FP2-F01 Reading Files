@@ -1,1 +1,23 @@
+with open('data.txt', 'w') as file:
+    file.write("Name: Alice\n")
+    file.write("Age: 30\n")
+    file.write("City: Wonderland\n")
+    file.write("Occupation: Adventurer\n")
+
+
+def read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                print(line.strip())
+    except FileNotFoundError:
+        print(f"The file {filename} was not found.")
+
+def main():
+    filename = 'data.txt'
+    read_file(filename)
+
+if __name__ == "__main__":
+    main()
 
