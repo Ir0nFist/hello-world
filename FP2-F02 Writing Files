@@ -1,0 +1,27 @@
+# Function to create and write to a text file
+def write_to_file(filename, content):
+    with open(filename, 'w') as file:
+        file.write(content)
+        print(f"Data written to {filename}")
+
+# Function to read from a text file
+def read_from_file(filename):
+    with open(filename, 'r') as file:
+        content = file.read()
+        return content
+
+# Main program
+if __name__ == "__main__":
+    # Specify the filename
+    filename = "example.txt"
+    
+    # Content to write
+    content = "Hello, this is a sample text file.\nWelcome to the file handling in Python!"
+
+    # Write to the file
+    write_to_file(filename, content)
+
+    # Read from the file
+    read_content = read_from_file(filename)
+    print("Content read from file:")
+    print(read_content)
