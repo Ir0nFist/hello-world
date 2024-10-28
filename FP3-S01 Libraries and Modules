@@ -1,0 +1,61 @@
+from modules.math.operations import add, multiply, PI
+from modules.strings.manipulations import reverse_string, greeting
+from modules.data.sample_data import fruits, update_fruits
+
+# Main code
+def main():
+    print("Welcome to the Libraries and Modules Program!")
+
+    # Using math operations
+    num1, num2 = 5, 10
+    print(f"Adding {num1} and {num2}: {add(num1, num2)}")
+    print(f"Multiplying {num1} and {num2}: {multiply(num1, num2)}")
+    print(f"Value of PI: {PI}")
+
+    # Using string manipulations
+    original_string = "Hello, World!"
+    print(f"Original string: {original_string}")
+    print(f"Reversed string: {reverse_string(original_string)}")
+    print(greeting("User"))
+
+    # Using sample data
+    print(f"Initial fruits: {fruits}")
+    updated_fruits = update_fruits("orange")
+    print(f"Updated fruits: {updated_fruits}")
+
+if __name__ == "__main__":
+    main()
+
+
+# Modules
+
+# All the file can be empty, but it allows the directory to be treated as a package.
+
+  # operations.py
+
+  PI = 3.14159
+
+  def add(a, b):
+      return a + b
+
+  def multiply(a, b):
+      return a * b
+
+
+  # manipulations.py
+
+  def reverse_string(s):
+      return s[::-1]
+
+  def greeting(name):
+      return f"Hello, {name}! Welcome to the program."
+
+  
+  # sample_data.py
+
+  fruits = ["apple", "banana", "cherry"]
+
+  def update_fruits(new_fruit):
+      """Adds a new fruit to the list and returns the updated list."""
+      fruits.append(new_fruit)
+      return fruits
