@@ -1,0 +1,46 @@
+#main file
+import random
+from my_libs.simple_lib import simple_function, simple_variable, simple_list
+from my_libs.info_lib import info_function, info_variable, info_dict
+
+def main():
+    print("Welcome to the Python Program!")
+
+    # Using the random module
+    random_number = random.randint(1, 100)
+    print(f"Random number: {random_number}")
+
+    # Using the simple library
+    print(f"Simple variable: {simple_variable}")
+    print(f"Simple list: {simple_list}")
+    print(f"Simple function output: {simple_function()}")
+
+    # Using the info library
+    print(f"Info variable: {info_variable}")
+    print(f"Info dictionary: {info_dict}")
+    print(f"Info function output: {info_function()}")
+
+if __name__ == "__main__":
+    main()
+
+
+#simple_lib.py
+simple_variable = "This is a simple variable."
+
+simple_list = [1, 2, 3, 4, 5]
+
+def simple_function():
+    return "Hello from simple_function!"
+
+
+#info_lib.py
+info_variable = "This is an info variable."
+
+info_dict = {
+    "name": "Sample Module",
+    "version": 1.0,
+    "description": "This module provides info functions."
+}
+
+def info_function():
+    return "Hello from info_function! Here's some info."
